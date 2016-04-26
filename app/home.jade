@@ -1,0 +1,17 @@
+.container
+    .header
+        h1 FIMDB - Fake Internet Movie Data Base
+
+        a(href="#/create") Criar filme
+
+    section.main( ng-repeat="movie in movies" )
+        section.movie
+            .movie__poster.col-xs-6.col-sm-4.col-md-2.col-lg-2
+                img.img-responsive(src="{{ movie.title_image_url }}")
+
+            .movie__meta.col-xs-6.col-sm-8.col-md-10.col-lg-10
+                h2.movie__title 
+                    a( href="#/movies/{{movie._id}}" ) {{ movie.title }}
+
+                h3.movie__genre
+                    span( ng-repeat="genre in movies.genre" ) {{ genre }}

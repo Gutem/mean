@@ -1,6 +1,6 @@
-// app.js
+// server.js
 
-// modules =================================================
+// modules =====================================================================
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,7 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// configuration ===========================================
+// configuration ===============================================================
     
 // config files
 var db = require('./config/db');
@@ -27,13 +27,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// routes ==================================================
+// routes ======================================================================
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var moviesRouter = require('./routes/movies');
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
