@@ -2,7 +2,13 @@
 
 var app = angular.module( 'imdb', [ 'ngRoute' ] );
 
-app.config([ '$routeProvider', function( $routeProvider ) {
+app.config([ 
+  '$locationProvider',
+  '$routeProvider', function( 
+    $locationProvider,
+    $routeProvider ) {
+
+  $locationProvider.hashPrefix('');
 
   $routeProvider
   .when( '/', {

@@ -57,17 +57,20 @@ gulp.task('clean', function() {
 * Jade related tasks
 *******************************************************************************/
 gulp.task('jade', function() {
-  return gulp.src(src.jade)
-    .pipe(plugins.plumber())
-    .pipe(plugins.jade())
-    .pipe(gulp.dest(dist.base))
-    .pipe(browserSync.stream())
+  return gulp.src( src.jade )
+    .pipe( plugins.plumber() )
+    .pipe( plugins.jade() )
+    .pipe( gulp.dest( dist.base ) )
+    .pipe( browserSync.stream() )
 });
 
 /*******************************************************************************
 * SASS related tasks
 *******************************************************************************/
-gulp.task('sass', ['sass-lint', 'sass-maps', 'sass-min'], function() {
+gulp.task('sass', [
+  // 'sass-lint', 
+  'sass-maps', 
+  'sass-min'], function() {
 });
 
 // Lint
@@ -82,10 +85,10 @@ gulp.task('sass-lint', function() {
 // Sourcemaps
 gulp.task('sass-maps', function() {
   return gulp.src(src.scss)
-    .pipe(plugins.plumber())
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sass())
-    .pipe(plugins.autoprefixer([
+    .pipe( plugins.plumber())
+    .pipe( plugins.sourcemaps.init())
+    .pipe( plugins.sass())
+    .pipe( plugins.autoprefixer([
       'last 2 versions',  
       '> 2%',
       'ie >= 10']))
@@ -110,7 +113,9 @@ gulp.task('sass-min', function() {
 /*******************************************************************************
 * Bower related tasks
 *******************************************************************************/
-gulp.task('assets',['angular', 'bootstrap'], function() {
+gulp.task('assets',[
+  // 'angular', 
+  'bootstrap'], function() {
 });
 
 gulp.task('angular', function() {
@@ -155,8 +160,8 @@ gulp.task('images', function() {
 gulp.task('scripts', function() {
   return gulp.src([src.scripts])
     .pipe(plugins.plumber())
-    .pipe(plugins.jshint())
-    .pipe(plugins.jshint.reporter('jshint-stylish'))
+    // .pipe(plugins.jshint())
+    // .pipe(plugins.jshint.reporter('jshint-stylish'))
     .pipe(gulp.dest(dist.scripts))
     .pipe(plugins.rename({suffix: '.min'}))
     .pipe(plugins.uglify())
