@@ -1,23 +1,22 @@
-var express = require('express');
+var express = require( 'express' );
 var router = express.Router();
-var Movie = require('./../models/movie.js');
+var Movie = require( './../models/movie.js' );
 
-router.use(function(req, res, next) {
+router.use( function( req, res, next ) {
   next();
 });
 
-router.route('/')
+// /movies
+router.route( '/' )
     .get( function( req, res ) {
-        Movie.find(function( err, movies ) {
+        Movie.find( function( err, movies ) {
             if ( err )
                 res.send( err );
-
             res.json( movies );
         });
     })
 
     .post( function( req, res ) {
-            
         var movie = new Movie();
         movie.title = req.body.title;
         movie.title_image_url = req.body.title_image_url;
@@ -29,15 +28,14 @@ router.route('/')
         movie.save( function( err ) {
             if ( err )
                 res.send( err );
-
             res.json({ message: 'Movie created!' });
         });    
     });
 
-router.route('/:movie_id')
-
+// /movies/:movie_id
+router.route( '/:movie_id' )
     .get( function ( req, res ) {
-        Movie.findById(req.params.movie_id, function( err, movie ) {
+        Movie.findById( req.params.movie_id, function( err, movie ) {
             if ( err )
                 res.send( err );
             res.json( movie );
@@ -45,7 +43,7 @@ router.route('/:movie_id')
     })
 
     .put( function( req, res ) {
-        Movie.findById(req.params.movie_id, function( err, movie ) {
+        Movie.findById( req.params.movie_id, function( err, movie ) {
 
             if ( err )
                 res.send( err );
@@ -60,10 +58,8 @@ router.route('/:movie_id')
             movie.save(function( err ) {
                 if ( err )
                     res.send( err );
-
                 res.json({ message: 'Movie updated!' });
             });
-
         });
     })
 
@@ -73,8 +69,7 @@ router.route('/:movie_id')
         }, function( err, movie ) {
             if ( err )
                 res.send( err );
-
-            res.json({ message: 'Successfully deleted' });
+            res.json({ message: 'Movie deleted!' });
         });
     });
 

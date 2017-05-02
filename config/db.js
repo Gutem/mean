@@ -1,3 +1,3 @@
 // Database ====================================================================
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/movies');
+var mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/movies' );

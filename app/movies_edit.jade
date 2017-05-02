@@ -4,20 +4,20 @@
             h2.movie__title Editando {{ movie.title }}
     form
         .field
-            label(for="title") Título
-            input(type="text" name="title" placeholder="Rock Horror Picture Show" ng-model="movie.title" value="{{ movie.title }}" )
+            label( for="title" ) Título
+            input( type="text" name="title" placeholder="Rock Horror Picture Show" ng-model="movie.title" value="{{ movie.title }}" )
 
         .field
-            label(for="genre") Gênero
-            input(type="text" name="genre" placeholder="Separe os gêneros por vírgula" ng-model="movie.genre" value="{{ movie.genre }}" )
+            label( for="genre" ) Gênero
+            input( type="text" name="genre" placeholder="Separe os gêneros por vírgula" ng-model="movie.genre" value="{{ movie.genre }}" )
 
         .field
-            label(for="poster") Poster
-            input(type="url" name="poster" placeholder="O link de um Poster para o Filme" ng-model="movie.title_image_url" value="{{ movie.title_image_url }}" )
+            label( for="poster" ) Poster
+            input( type="url" name="poster" placeholder="O link de um Poster para o Filme" ng-model="movie.title_image_url" value="{{ movie.title_image_url }}" )
 
         .field
-            label(for="trailer") Trailer
-            input(type="text" name="trailer" placeholder="Video ID do Youtube" ng-model="movie.trailer_url" value="{{ movie.trailer_url }}" )
+            label( for="trailer") Trailer
+            input( type="text" name="trailer" placeholder="Video ID do Youtube" ng-model="movie.trailer_url" value="{{ movie.trailer_url }}" )
             small A parte sublinhada. Ex: https://www.youtube.com/watch?v=<u>4plqh6obZW4</u> 
 
         .field

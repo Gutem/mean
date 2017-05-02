@@ -2,7 +2,7 @@
     .header
         h1 FIMDB - Fake Internet Movie Data Base
 
-        a(href="#/movies/{{movie._id}}/edit") Editar
+        a( href="#/movies/{{movie._id}}/edit" ) Editar
 
     section.main
         section.movie
@@ -11,6 +11,6 @@
 
         section
             .movie__poster.col-xs-12.col-sm-4.col-md-4.col-lg-4
-                img.img-responsive(src="{{ movie.title_image_url }}")
-            .movie__trailer.col-xs-12.col-sm-8.col-md-8.col-lg-8(ng-show="movie.trailer_url")
+                img.img-responsive( src="{{ movie.title_image_url }}" )
+            .movie__trailer.col-xs-12.col-sm-8.col-md-8.col-lg-8( ng-show="movie.trailer_url" )
                 <youtube width="{{ youtube.width }}" height="{{ youtube.height }}" videoid="{{ youtube.videoid }}"></youtube>  

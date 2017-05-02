@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require( 'mongoose' );
 var Schema = mongoose.Schema;
 
 var MovieSchema = new Schema({
@@ -7,8 +7,8 @@ var MovieSchema = new Schema({
   trailer_url: String,
   summaries: [ String ],
   genres: [ String ],
-  box_office: [Schema.Types.Mixed]
+  box_office: [ Schema.Types.Mixed ]
 });
 
-module.exports = mongoose.model('Movie', MovieSchema);
+module.exports = mongoose.model( 'Movie', MovieSchema );
 
